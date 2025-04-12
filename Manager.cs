@@ -16,16 +16,16 @@ public class Manager
     {
         //following code is from Litman, modified to fit my existing project
         System.Random rand=new System.Random();
-        //make 10 random moves for testing
-        for(int i=0;i<10;i++)
+        //make 42 random moves to guarantee a full game 
+        for(int i=0;i<42;i++)
         {
-            this.board.Display();
             Result r;
             do
             {
                 short col=(short)rand.Next(0,7);
                 short colour=(short)Math.Pow(-1,(i%2));
-                PrintStuff("try: col"+col+" for colour:"+colour+"\n");
+                PrintStuff("move:"+i+"\ntry: col"+col+" for colour:"+colour+"\n");
+                this.board.Display();
                 r=this.board.MakeMove(col,colour);
             }
             while(!r.legal);
@@ -34,10 +34,15 @@ public class Manager
             if(this.board.Winner(r.col,r.row))
             {
                 //someone won
+                PrintStuff(board.GetPlayerAt(r.col,r.row)+" won on move "+i+"\n");
+                //end the game
+                break;
             }
         }
-        PrintStuff("finished test\n");
+        PrintStuff("final board:\n");
+        this.board.Display();
     }
 
+    // just prints stuff. a macro to allow me to easily modify how everything prints.
     public static void PrintStuff(string s){Console.Write(s);}
 }
