@@ -20,7 +20,7 @@ public class Board
         }
     }
 
-    public short GetPlayerAt(short col, short row)
+    public short GetPlayerAt(short col,short row)
     {
         return board[col,row].colour;
     }
@@ -30,7 +30,7 @@ public class Board
      * takes in the column and colour of the piece.
      * returns a Result with info about the move
      */
-    public Result MakeMove(short col, short colour)
+    public Result MakeMove(short col,short colour)
     {
         Result r = new Result();
 
