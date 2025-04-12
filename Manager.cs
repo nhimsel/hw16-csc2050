@@ -6,7 +6,7 @@ public class Manager
 
     public Manager()
     {
-        this.board = new Board();
+        this.board=new Board();
     }
 
     /*
